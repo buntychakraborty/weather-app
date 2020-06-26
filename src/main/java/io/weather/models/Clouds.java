@@ -1,5 +1,5 @@
 
-package io.coupon.models;
+package io.weather.models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,36 +12,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "lon",
-    "lat"
+    "all"
 })
-public class Coord {
+public class Clouds {
 
-    @JsonProperty("lon")
-    private Double lon;
-    @JsonProperty("lat")
-    private Double lat;
+    @JsonProperty("all")
+    private Integer all;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("lon")
-    public Double getLon() {
-        return lon;
+    @JsonProperty("all")
+    public Integer getAll() {
+        return all;
     }
 
-    @JsonProperty("lon")
-    public void setLon(Double lon) {
-        this.lon = lon;
-    }
-
-    @JsonProperty("lat")
-    public Double getLat() {
-        return lat;
-    }
-
-    @JsonProperty("lat")
-    public void setLat(Double lat) {
-        this.lat = lat;
+    @JsonProperty("all")
+    public void setAll(Integer all) {
+        this.all = all;
     }
 
     @JsonAnyGetter
@@ -56,7 +43,7 @@ public class Coord {
 
 	@Override
 	public String toString() {
-		return "Coord [lon=" + lon + ", lat=" + lat + ", additionalProperties=" + additionalProperties + "]";
+		return "Clouds [all=" + all + ", additionalProperties=" + additionalProperties + "]";
 	}
     
     

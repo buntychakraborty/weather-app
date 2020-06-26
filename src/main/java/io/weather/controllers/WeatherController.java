@@ -1,4 +1,4 @@
-package io.coupon.controllers;
+package io.weather.controllers;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import io.coupon.models.Daily;
-import io.coupon.models.DailyTempBO;
-import io.coupon.models.WeatherBO;
-import io.coupon.restclients.WeatherRestClient;
-import io.coupon.services.WeatherService;
+import io.weather.models.Daily;
+import io.weather.models.DailyTempBO;
+import io.weather.models.WeatherBO;
+import io.weather.restclients.WeatherRestClient;
+import io.weather.services.WeatherService;
 
 @RestController
 @RequestMapping("/")

@@ -1,5 +1,5 @@
 
-package io.coupon.models;
+package io.weather.models;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package io.coupon.services;
+package io.weather.services;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import io.coupon.models.DailyTempBO;
-import io.coupon.restclients.WeatherRestClient;
+import io.weather.models.DailyTempBO;
+import io.weather.restclients.WeatherRestClient;
 
 @Service
 public class WeatherService {
