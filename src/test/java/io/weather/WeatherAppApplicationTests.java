@@ -1,4 +1,4 @@
-package io.coupon;
+package io.weather;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
