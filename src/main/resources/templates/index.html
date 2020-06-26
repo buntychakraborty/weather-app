@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+<title>Weather Application</title>
+
+<!-- Loading third party fonts -->
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|"
+	rel="stylesheet" type="text/css">
+<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- Loading main css file -->
+<link rel="stylesheet" href="/style.css">
+
+<script>
+	var x = document.getElementById("demo");
+
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	function showPosition(position) {
+		x.innerHTML = "Latitude: " + position.coords.latitude
+				+ "<br>Longitude: " + position.coords.longitude;
+	}
+</script>
+
+</head>
+
+
+<body>
+
+	<div class="site-content">
+		<div class="site-header">
+			<div class="container">
+				<a href="#" class="branding"> <img
+					src="images/logo.png" alt="" class="logo">
+					<div class="logo-type">
+						<h1 class="site-title">Weather4You</h1>
+						<small class="site-description">Weather report on a single
+							click</small>
+					</div>
+				</a>
+
+				
+				<div class="mobile-navigation"></div>
+
+			</div>
+		</div>
+		<!-- .site-header -->
+
+		<div class="hero" data-bg-image="images/banner.png">
+			<div class="container">
+				<form action="/weather" class="find-location">
+					<input type="text" name="location" placeholder="Find your location..."> <input
+						type="submit" value="Find">
+				</form>
+
+			</div>
+		</div>
+		<div class="forecast-table">
+			<div class="container">
+				<div class="forecast-container">
+					<div class="today forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${weekDayName}"></div>
+							<div class="date" th:text="${finalDate}"></div>
+							
+						
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="location" th:text="${nameOfTheLocation}"></div>
+							<div class="degree">
+								<div class="num">
+									<span th:text=${currentTemperature}></span><sup>o</sup>C
+								</div>
+								<div class="forecast-icon">
+									<img src="images/icons/icon-1.svg" alt="" width=90>
+								</div>
+							</div>
+							<span ><img src="images/icon-umberella.png" alt=""><span th:text="${clouds}"></span></span>
+							<span><img src="images/icon-wind.png" alt=""><span th:text="${windSpeed}"></span></span>
+							<span><img src="images/icon-compass.png" alt="">East</span>
+						</div>
+					</div>
+					
+					
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${secondDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${secondDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${secondDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+					
+					
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${thirdDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${thirdDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${thirdDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+						<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${fourthDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${fourthDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${fourthDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+							<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${fifthDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${fifthDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${fifthDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+							<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${sixthDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${sixthDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${sixthDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+							<div class="forecast">
+						<div class="forecast-header">
+							<div class="day" th:text="${seventhDayName}"></div>
+						</div>
+						<!-- .forecast-header -->
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<img src="images/icons/icon-3.svg" alt="" width=48>
+							</div>
+							<div class="degree"><span th:text="${seventhDayDayTemp}"></span>
+								<sup>o</sup>C
+							</div>
+							<small><span th:text="${seventhDayNightTemp}"></span><sup>o</sup></small>
+						</div>
+					</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<footer class="site-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<form action="#" class="subscribe-form">
+							<input type="text" placeholder="Enter your email to subscribe...">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+					<div class="col-md-3 col-md-offset-1">
+						<div class="social-links">
+							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+								class="fa fa-twitter"></i></a> <a href="#"><i
+								class="fa fa-google-plus"></i></a> <a href="#"><i
+								class="fa fa-pinterest"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<p class="colophon">Copyright 2020 Weather4You. Develpoed by
+					Bunty Chakraborty. All rights reserved</p>
+			</div>
+		</footer>
+		<!-- .site-footer -->
+	</div>
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>
