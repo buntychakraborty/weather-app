@@ -17,5 +17,7 @@ public interface WeatherRestClient {
 			@RequestParam(value="appid") String appid,@RequestParam(value="exclude") String exclude);
 	
 	
-
+	@GetMapping("/weather")
+	public WeatherBO getWeatherOfParticularLocationForName(@RequestParam(value="appid") String appid,@RequestParam(value="lat") String lat,@RequestParam(value="lon") String lon);
+	
 }
