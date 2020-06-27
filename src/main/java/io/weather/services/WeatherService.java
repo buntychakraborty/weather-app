@@ -1,5 +1,6 @@
 package io.weather.services;
 
+import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -41,6 +42,11 @@ public class WeatherService {
 		return weatherRestClient.getDailyTemperatureFromLatAndLong(lat, lon, apiKey, exclude);
 
 	}
+	
+	public String getWeatherOfParticularLocationForName(String lat, String lon) {
+		return getFilteredNameOfLocation(weatherRestClient.getWeatherOfParticularLocationForName(apiKey,lat, lon).getName());
+
+	} 
 
 	public static String getDateInRequiredFormat(Date date) {
 
@@ -52,5 +58,12 @@ public class WeatherService {
 
 		return finalDate;
 
+	}
+	
+	private static String getFilteredNameOfLocation(String locationName) {
+		
+        String normalizedLocationName = Normalizer.normalize(locationName, Normalizer.Form.NFD);
+        String accentRemovedLocationName = normalizedLocationName.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        return accentRemovedLocationName;
 	}
 }

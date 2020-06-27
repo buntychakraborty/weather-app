@@ -102,7 +102,9 @@ public class WeatherController {
 		String location = null;
 		ModelAndView modelAndViewForIndexPage = new ModelAndView("showweather");
 		DailyTempBO weatherBO = weatherService.getDailyTemperatureFromLatAndLong(lat, lon);
-		location = weatherBO.getTimezone().split("/")[1];
+		location = weatherService.getWeatherOfParticularLocationForName(lat,lon);
+		
+		
 
 		WeatherBO weatherReportData = weatherRestClient.getWeatherOfParticularLocation(apiKey, location);
 		String finalDateWithMonthName = WeatherService
@@ -116,7 +118,7 @@ public class WeatherController {
 		Daily weatherBO4 = weatherBO.getDaily().get(4);
 		Daily weatherBO5 = weatherBO.getDaily().get(5);
 		Daily weatherBO6 = weatherBO.getDaily().get(6);
-		modelAndViewForIndexPage.addObject("nameOfTheLocation", weatherReportData.getName());
+		modelAndViewForIndexPage.addObject("nameOfTheLocation", location);
 		modelAndViewForIndexPage.addObject("weekDayName", localDateTime.getDayOfWeek());
 		modelAndViewForIndexPage.addObject("finalDate", finalDateWithMonthName);
 		modelAndViewForIndexPage.addObject("currentTemperature",
