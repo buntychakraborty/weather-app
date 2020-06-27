@@ -99,11 +99,11 @@ public class WeatherController {
 	@GetMapping("/weatherCurrentLocation")
 	public ModelAndView getWeatherBaseLocation(@RequestParam(value = "latitude") String lat,
 			@RequestParam(value = "longitude") String lon) {
+		
 		String location = null;
 		ModelAndView modelAndViewForIndexPage = new ModelAndView("showweather");
 		DailyTempBO weatherBO = weatherService.getDailyTemperatureFromLatAndLong(lat, lon);
 		location = weatherService.getWeatherOfParticularLocationForName(lat,lon);
-		
 		
 
 		WeatherBO weatherReportData = weatherRestClient.getWeatherOfParticularLocation(apiKey, location);
