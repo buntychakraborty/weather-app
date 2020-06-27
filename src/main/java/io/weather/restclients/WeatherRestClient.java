@@ -16,5 +16,6 @@ public interface WeatherRestClient {
 	public DailyTempBO getDailyTemperatureFromLatAndLong(@RequestParam(value="lat") String lat,@RequestParam(value="lon") String lon,
 			@RequestParam(value="appid") String appid,@RequestParam(value="exclude") String exclude);
 	
+	
 
 }
