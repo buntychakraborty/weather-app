@@ -41,6 +41,8 @@ public class WeatherService {
 		return weatherRestClient.getDailyTemperatureFromLatAndLong(lat, lon, apiKey, exclude);
 
 	}
+	
+	
 
 	public static String getDateInRequiredFormat(Date date) {
 
