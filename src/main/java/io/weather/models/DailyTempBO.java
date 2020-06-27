@@ -25,8 +25,6 @@ public class DailyTempBO {
 	private Integer timezoneOffset;
 	@JsonProperty("daily")
 	private List<Daily> daily = null;
-	@JsonProperty("name")
-	private String name;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -90,21 +88,10 @@ public class DailyTempBO {
 		this.additionalProperties.put(name, value);
 	}
 
-	@JsonProperty("name")
-	public String getName() {
-		return name;
-	}
-
-	@JsonProperty("name")
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	@Override
 	public String toString() {
 		return "DailyTempBO [lat=" + lat + ", lon=" + lon + ", timezone=" + timezone + ", timezoneOffset="
-				+ timezoneOffset + ", daily=" + daily + ", name=" + name + ", additionalProperties="
-				+ additionalProperties + "]";
+				+ timezoneOffset + ", daily=" + daily + ", additionalProperties=" + additionalProperties + "]";
 	}
 
 }
