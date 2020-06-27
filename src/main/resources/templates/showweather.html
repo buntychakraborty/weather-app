@@ -16,34 +16,10 @@
 <!-- Loading main css file -->
 <link rel="stylesheet" href="/style.css">
 
-<script>
-	var x = document.getElementById("location");
-
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
-	}
-
-	function showPosition(position) {
-		var lat = document.getElementById("latitude");
-		var lon = document.getElementById("longitude");
-		if (!lat.value) {
-			lat.value = position.coords.latitude;
-			lon.value = position.coords.longitude;
-			var url = document.getElementById("weatherFormBase").action;
-			document.getElementById("weatherFormBase").submit();
-		}
-	}
-
-</script>
-
 </head>
 
 
-<body onload="getLocation();">
+<body>
 
 	<div class="site-content">
 		<div class="site-header">
@@ -70,12 +46,6 @@
 					<input type="text" name="location" id="location"
 						placeholder="Find your location..."> <input type="submit"
 						value="Find">
-				</form>
-				<form id="weatherFormBase" action="/weatherCurrentLocation">
-					<input type="text" name="latitude" id="latitude"
-						style="display: none"> <input type="text" name="longitude"
-						id="longitude" style="display: none"> <input type="submit"
-						style="display: none" value="Find">
 				</form>
 			</div>
 		</div>
