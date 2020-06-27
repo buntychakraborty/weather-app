@@ -37,7 +37,6 @@
 			document.getElementById("weatherFormBase").submit();
 		}
 	}
-
 </script>
 
 </head>
@@ -65,12 +64,9 @@
 		<!-- .site-header -->
 
 		<div class="hero" data-bg-image="images/banner.png">
-			<div class="container">
-				<form id="weatherForm" action="/weather" class="find-location">
-					<input type="text" name="location" id="location"
-						placeholder="Find your location..."> <input type="submit"
-						value="Find">
-				</form>
+			<div class="container" style="text-align-last: center;">
+				<img class="irc_mi" src="images/loader.gif" data-atf="0"
+					alt="Related image" width="199" height="199">
 				<form id="weatherFormBase" action="/weatherCurrentLocation">
 					<input type="text" name="latitude" id="latitude"
 						style="display: none"> <input type="text" name="longitude"
@@ -79,7 +75,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="forecast-table">
+		<div class="forecast-table" style="display: none">
 			<div class="container">
 				<div class="forecast-container">
 					<div class="today forecast">
