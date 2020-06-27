@@ -21,7 +21,7 @@
 
 	function getLocation() {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
+			navigator.geolocation.getCurrentPosition(showPosition, showError);
 		} else {
 			x.innerHTML = "Geolocation is not supported by this browser.";
 		}
@@ -30,11 +30,29 @@
 	function showPosition(position) {
 		var lat = document.getElementById("latitude");
 		var lon = document.getElementById("longitude");
-		if (!lat.value) {
-			lat.value = position.coords.latitude;
-			lon.value = position.coords.longitude;
-			var url = document.getElementById("weatherFormBase").action;
-			document.getElementById("weatherFormBase").submit();
+		lat.value = position.coords.latitude;
+		lon.value = position.coords.longitude;
+		var url = document.getElementById("weatherFormBase").action;
+		document.getElementById("weatherFormBase").submit();
+	}
+
+	function showError(error) {
+		x = document.getElementById("location");
+		document.getElementById("imgLoader").style.display = "none";
+		document.getElementById("weatherForm").style.display = "block";
+		switch (error.code) {
+		case error.PERMISSION_DENIED:
+			x.value = "User denied the request for Geolocation."
+			break;
+		case error.POSITION_UNAVAILABLE:
+			x.value = "Location information is unavailable."
+			break;
+		case error.TIMEOUT:
+			x.value = "The request to get user location timed out."
+			break;
+		case error.UNKNOWN_ERROR:
+			x.value = "An unknown error occurred."
+			break;
 		}
 	}
 </script>
@@ -65,13 +83,17 @@
 
 		<div class="hero" data-bg-image="images/banner.png">
 			<div class="container" style="text-align-last: center;">
-				<img class="irc_mi" src="images/loader.gif" data-atf="0"
-					alt="Related image" width="199" height="199">
+				<img id="imgLoader" class="irc_mi" src="images/loader.gif"
+					data-atf="0" alt="Related image" width="199" height="199">
 				<form id="weatherFormBase" action="/weatherCurrentLocation">
-					<input type="text" name="latitude" id="lat"
-						style="display: none"> <input type="text" name="lon"
+					<input type="text" name="latitude" id="latitude"
+						style="display: none"> <input type="text" name="longitude"
 						id="longitude" style="display: none"> <input type="submit"
 						style="display: none" value="Find">
+				</form>
+				<form id="weatherForm" style="display: none" class="find-location">
+					<input type="text" name="location" id="location" readonly
+						value="as">
 				</form>
 			</div>
 		</div>
