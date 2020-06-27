@@ -95,6 +95,13 @@ public class WeatherController {
 
 		return modelAndViewForIndexPage;
 	}
+	
+	@GetMapping("/location")
+	public DailyTempBO getDailyTemperatureFromLatAndLong(@RequestParam String lat, @RequestParam String lon) {
+		System.out.println("dfff");
+		return weatherRestClient.getDailyTemperatureFromLatAndLong(lat, lon, apiKey, exclude);
+
+	}
 
 	@GetMapping("/index")
 	public ModelAndView getIndexPage() {

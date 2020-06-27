@@ -17,21 +17,31 @@
 <link rel="stylesheet" href="/style.css">
 
 <script>
-	var x = document.getElementById("demo");
+<script type="text/javascript">
 
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
-	}
+$(document).ready(function(){
+    get_location();
+});
 
-	function showPosition(position) {
-		x.innerHTML = "Latitude: " + position.coords.latitude
-				+ "<br>Longitude: " + position.coords.longitude;
-	}
+function get_location()
+{
+	alert("gello");
+    if(navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(function(position){
+
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                $.post('http://localhost:8080/location', 'lat='+latitude+'&lon='+longitude);
+
+
+        });
+    }
+}
+
 </script>
+
 
 </head>
 
@@ -222,6 +232,10 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/app.js"></script>
+	<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 
