@@ -47,7 +47,7 @@ public class WeatherController {
 		Daily weatherBO4 = weatherBO.getDaily().get(4);
 		Daily weatherBO5 = weatherBO.getDaily().get(5);
 		Daily weatherBO6 = weatherBO.getDaily().get(6);
-		modelAndViewForIndexPage.addObject("nameOfTheLocation", weatherReportData.getName());
+		modelAndViewForIndexPage.addObject("nameOfTheLocation", WeatherService.getFilteredNameOfLocation(weatherReportData.getName()));
 		modelAndViewForIndexPage.addObject("weekDayName", localDateTime.getDayOfWeek());
 		modelAndViewForIndexPage.addObject("finalDate", finalDateWithMonthName);
 		modelAndViewForIndexPage.addObject("currentTemperature",

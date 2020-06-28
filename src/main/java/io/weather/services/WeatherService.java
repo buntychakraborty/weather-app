@@ -60,7 +60,7 @@ public class WeatherService {
 
 	}
 	
-	private static String getFilteredNameOfLocation(String locationName) {
+	public static String getFilteredNameOfLocation(String locationName) {
 		
         String normalizedLocationName = Normalizer.normalize(locationName, Normalizer.Form.NFD);
         String accentRemovedLocationName = normalizedLocationName.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
