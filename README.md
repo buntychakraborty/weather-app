@@ -1,5 +1,6 @@
 Weather Application:
 This is basically a weather application showing the weather of any location you want.
+
 Technologies used to develop this application:
 1.Spring Boot
 2.Thymeleaf
