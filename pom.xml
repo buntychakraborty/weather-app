@@ -87,6 +87,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<finalName>weather-app</finalName>
 	</build>
 
 </project>
